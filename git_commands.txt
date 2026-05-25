@@ -1,0 +1,174 @@
+add command just take the files in staging area
+git add file1.txt
+git add file1.txt file2.txt 
+git add .
+
+we can remove any file from staging area at any point of time
+git restore --staged .
+or git reset
+
+we can also do decide to let git not to track any specific file 
+git rm --cached <file> bring the file from the staging area back to local and not only stop traking the file from the git traking index but delte from system
+git rm -r --cached <file>   it will not delete from local system
+Removes the file from Git tracking/index.
+Keeps the actual file on your computer.
+Often used when you want Git to stop tracking a file.
+
+but this is dangerous because git rm file.txt
+then Git removes:
+
+the tracked file
+and deletes it from your computer too.
+
+git commit -m "commit message"
+
+git log
+
+git --log
+Always do atomic commit{commit every unitof work}
+
+git has default vim code editor althrough we can chnage it 
+
+.gitignore conatines path of those files which i dont want to be traked by git
+
+empty folder can be tracked by git by putting them .gitkeep file int it
+
+
+git branch
+git branch work
+git switch work
+git switch -c Temp // will create and switch to thatbranch if not exist
+git checkout NewBranhc only swithc if this exits
+
+git checkout main
+git merge work
+
+git branhc -m master main
+git branch -d work
+
+git diff
+gti diff --staged
+git diff branch1 branch2
+git diff commit1 commit2
+
+
+git stash 
+git stash save "work in progres"
+git stash list 
+git stash apply 
+git stash apply stash@{1}
+add command just take the files in staging area
+git add file1.txt
+git add file1.txt file2.txt 
+git add .
+
+we can remove any file from staging area at any point of time
+git restore --staged .
+or git reset
+
+we can also do decide to let git not to track any specific file 
+git rm --cached <file>
+Removes the file from Git tracking/index.
+Keeps the actual file on your computer.
+Often used when you want Git to stop tracking a file.
+
+but this is dangerous because git rm file.txt
+then Git removes:
+
+the tracked file
+and deletes it from your computer too.
+
+git commit -m "commit message"
+
+git log
+
+git --log
+Always do atomic commit{commit every unitof work}
+
+git has default vim code editor althrough we can chnage it 
+
+.gitignore conatines path of those files which i dont want to be traked by git
+
+empty folder can be tracked by git by putting them .gitkeep file int it
+
+
+git branch
+git branch work
+git switch work
+git switch -c Temp // will create and switch to thatbranch if not exist
+git checkout NewBranhc only swithc if this exits
+
+git checkout main
+git merge work
+
+git branhc -m master main
+git branch -d work
+
+git stash 
+git stash save "work in progres"
+git stash list 
+git stash apply {it will apply the last stash one}
+git stash apply stash@{1}
+
+git stash drop stash@{0}
+git stash clear
+git stash pop
+git stash apply stash@{0} anotherbranch
+
+in other branches 
+git rebase main
+
+reflog and reset 
+
+generate ssh key read github official doc
+
+creat a repo on github
+
+git remote -v
+copy the https address of the repo
+git remote add origin
+add an upstream 
+git push -u origin main
+
+stays up to date with the new main
+git fetch origin
+git checkout main
+git pull origin main
+git checkout feature1
+git merge main
+
+added office ssh key in within ..sh folder but with different filename and added the same in office github
+created a config fiel within .ssh folder and created alisa for office and github work
+# Personal GitHub
+Host github-personal
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_ed25519
+
+# Office GitHub
+Host github-office
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/github_office
+
+now working both office and personal github ssh connection simultaneously
+
+ssh -T git@github-personal
+ssh -T git@github-office
+
+and we can clone any project in any directrory dont ahev to make that directrory git
+just 
+git clone git@github-office:then/path/to/repo.git
+
+then crerate local config of offic for that repo cause by dafault my personal one is setted
+
+To delete the last commit
+git log --oneline
+and find the last good commit let say xyz
+
+then do -> git reset --hard xyz and force pushn to main by git push --force origin main
+
+to get the commit with their author
+git log --format=full
+to get all the distinct author accross the entire commits
+git log --format="%an <%ae>"

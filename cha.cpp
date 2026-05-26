@@ -12,6 +12,13 @@ public:
     }
 };
 
+class Test{
+public:
+    Test(int a, int b, int c){
+        cout<<"Hello "<<a<<b<<c<<endl;
+    }
+};
+
 int main(int count, char const *argv[]){
     // char ch_arr[50] = "Shabaz";
     // string variable = ch_arr;
@@ -22,8 +29,8 @@ int main(int count, char const *argv[]){
    
     // Shabaz s(1);
     // s.get_x_val();
-    // Shabaz s2{2};
-    // s2.get_x_val();
+    Shabaz s2{2};
+    s2.get_x_val();
     // Shabaz s3 = 3; //this is not possible if the Shabaz class constructor is explicit
     // s3.get_x_val();
     string var;

@@ -75,6 +75,61 @@ public:
         delete tail;
         tail = temp;
     }
+    //iterative search return index of the element
+    int search_key(int val){
+        if (head == nullptr){
+            return -1;
+        }
+        Node *temp = head;
+        int index_count = 0;
+        while(temp != nullptr){
+            if (temp->data == val){
+                return index_count;
+            }else{
+                index_count++;
+                temp = temp->nextptr;
+            }
+        }
+        return -1;
+    }
+    
+    void implace_reversing(){
+        if (head == nullptr){
+            cout<<"list is empty"<<endl;
+            return;
+        }
+        Node *temp = head;
+        Node *prev=nullptr,*next=nullptr;
+        while(temp != nullptr){
+            next = temp->nextptr;
+            temp->nextptr = prev;
+            prev = temp;
+            temp = next;
+            if (temp != nullptr){
+                head = temp;
+            }
+        }
+    }
+    void removeNthElement(int index){
+        if (head == nullptr){
+            cout<<"empty"<<endl;
+        }
+        Node *temp = head;
+        int count = 0;
+        Node *prev = nullptr;
+        while (temp != nullptr){
+            if (count == index){
+                prev->nextptr = temp->nextptr;
+                delete temp;
+                temp = nullptr;
+                break;
+            }else{
+                prev = temp;
+                temp = temp->nextptr;
+                count++;
+            }
+        }
+    }
 };
 
 int main(int count, char *argv[]){
@@ -88,6 +143,12 @@ int main(int count, char *argv[]){
     l.pop_front();
     l.printList();
     l.pop_back();
+    l.printList();
+    cout<<l.search_key(2)<<endl;
+    cout<<l.search_key(13)<<endl;
+    l.push_back(5);
+    l.printList();
+    l.implace_reversing();
     l.printList();
     return 0;
 }
